@@ -4,12 +4,8 @@
   "description": "Mullet Stack: Facebook in the front. Walmart in the back. (React.js/Hapi)",
   "main": "walmart.js",
   "scripts": {
-    "webpack": "webpack",
-    "test": "jest && lab -v -l",
-    "lint": "eslint src/react_components/main.js",
-    "watch": "npm-watch",
-    "start": "node walmart.js",
-    "postinstall": "mkdir -p public/js && cp node_modules/bootstrap/dist/js/bootstrap.min.js node_modules/jquery/dist/jquery.min.* public/js && cp node_modules/bootstrap/dist/css/bootstrap*.min.css public/css && npm run webpack"
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test:watch": "npm run test -- --watch"
   },
   "engines": {
     "node": "^0.12"
@@ -43,6 +39,7 @@
     "bootstrap": "^3.3.5",
     "h2o2": "^4.0.2",
     "hapi": "^9.3.1",
+    "immutable": "^3.7.6",
     "inert": "^3.2.0",
     "jquery": "^2.1.4",
     "npm-watch": "^0.0.1",
@@ -51,11 +48,15 @@
     "webpack": "^1.12.10"
   },
   "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "chai": "^3.5.0",
+    "chai-immutable": "^1.5.3",
+    "code": "^1.5.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
     "jest-cli": "^0.4.19",
-    "code": "^1.5.0",
-    "lab": "^5.15.2"
+    "lab": "^5.15.2",
+    "mocha": "^2.4.5"
   },
   "jest": {
     "unmockedModulePathPatterns": [
@@ -70,6 +71,11 @@
       "js",
       "json",
       "es6"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
     ]
   }
 }

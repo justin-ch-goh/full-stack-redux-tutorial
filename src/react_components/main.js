@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var Facebook = require('./facebook');
+var Facebook = require('./index');
 
 React.render(
   <Facebook
